@@ -1,0 +1,38 @@
+﻿<Dialog:CustomDialog x:Class="HotelManagement.Shared.Models.Dialogs.View.Dialog"
+             x:Name="DialogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:view="clr-namespace:HotelManagement.Shared.Models.Dialogs.View"
+             mc:Ignorable="d"
+             PreviewKeyDown="Enter_KeyDown"
+             Loaded="DialogueIsLoaded">
+    <Grid VerticalAlignment="Top" Margin="0, 0 ,0 ,0">
+        <StackPanel x:Name="mainStackPanel" Height="Auto" VerticalAlignment="Top">
+            <TextBlock x:Name="TitleLabel"
+                        TextWrapping="Wrap"
+                        Text="{Binding Path=title}"
+                        Foreground="{DynamicResource AccentColorBrush}" />
+            <ScrollViewer
+                  x:Name="ScrollBar"
+                  Width="Auto"
+                  HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto">
+                <view:SelectableTextBlock x:Name="MessageLabel"
+                        TextWrapping="Wrap"
+                        Text="{Binding Path=message}" 
+                        Foreground="{DynamicResource AccentColorBrush}" />
+            </ScrollViewer>
+            <StackPanel x:Name="BtnStackPanel"                     
+                        Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="Auto" >
+                <StackPanel.Resources>
+                    <!--<Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="10,10,10,0"/>
+                    </Style>-->
+                </StackPanel.Resources>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Dialog:CustomDialog>

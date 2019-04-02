@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3EC57D28-5D93-412C-85EF-DAEDCABB2930}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HotelManagement</RootNamespace>
+    <AssemblyName>HotelManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net46\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net46\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=2.3.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.2.3.0\lib\net46\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Material, Version=2.3.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.Material.2.3.0\lib\net46\MahApps.Metro.IconPacks.Material.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Modern, Version=2.3.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.Modern.2.3.0\lib\net46\MahApps.Metro.IconPacks.Modern.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.7.1.0.431\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.7.1.0.431\lib\net45\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.7.1.0.431\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Shared\BaseClass\SharedBaseService.cs" />
+    <Compile Include="Shared\Convert\Extensions\SafeSqlConvert.cs" />
+    <Compile Include="Shared\Convert\Xaml\BooleanToYesNoConverter.cs" />
+    <Compile Include="Shared\Convert\Xaml\BoolToVisConverter.cs" />
+    <Compile Include="Shared\Convert\Xaml\BoolToVisInvConverter.cs" />
+    <Compile Include="Shared\Convert\Xaml\BoolToYesNo.cs" />
+    <Compile Include="Shared\Convert\Xaml\ButtonParamsConverter.cs" />
+    <Compile Include="Shared\Convert\Xaml\LocalToUtcDateTimeConverter.cs" />
+    <Compile Include="Shared\Convert\Xaml\NullToBoolConverter.cs" />
+    <Compile Include="Shared\Convert\Xaml\NullToVisConverter.cs" />
+    <Compile Include="Shared\Convert\Xaml\RadioBtnConverter.cs" />
+    <Compile Include="Shared\Convert\Xaml\StringToIntConverter.cs" />
+    <Compile Include="Shared\Convert\Xaml\UtcToLocalDateTimeConverter.cs" />
+    <Compile Include="Shared\HelperClass\PasswordHelper.cs" />
+    <Compile Include="SubForms\ChangePassword\1_Views\ChangePasswordView.xaml.cs">
+      <DependentUpon>ChangePasswordView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SubForms\ChangePassword\3_Models\Req\ChangePasswordReq.cs" />
+    <Compile Include="SubForms\ChangePassword\4_Services\ChangePasswordService.cs" />
+    <Compile Include="SubForms\Login\1_Views\LogonView.xaml.cs">
+      <DependentUpon>LogonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Login\2_ViewModels\LogonViewModel.cs" />
+    <Compile Include="SubForms\Login\3_Models\Req\LogonReq.cs" />
+    <Compile Include="SubForms\Login\4_Services\LogonService.cs" />
+    <Compile Include="SubForms\Permissions\1_Views\PermissionsView.xaml.cs">
+      <DependentUpon>PermissionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Permissions\2_ViewModels\PermissionsViewModel.cs" />
+    <Compile Include="SubForms\Permissions\3_Models\Req\GetUserPermissionsReq.cs" />
+    <Compile Include="SubForms\Permissions\3_Models\Req\SetUserPermissionsReq.cs" />
+    <Compile Include="SubForms\Themes\1_Views\PersonalizationView.xaml.cs">
+      <DependentUpon>PersonalizationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Themes\2_ViewModels\PersonalizationViewModel.cs" />
+    <Compile Include="Shared\BaseClass\SharedBaseViewModel.cs" />
+    <Compile Include="Shared\Convert\Extensions\DateTimeExtentions.cs" />
+    <Compile Include="Shared\CustomControls\DateRangeControl.xaml.cs">
+      <DependentUpon>DateRangeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Dialogs\DialogCoordinator.cs" />
+    <Compile Include="Shared\Dialogs\DialogManager.cs" />
+    <Compile Include="Shared\Dialogs\DialogParticipation.cs" />
+    <Compile Include="Shared\Dialogs\IDialogObjects.cs" />
+    <Compile Include="Shared\Dialogs\Models\DialogDateRange.cs" />
+    <Compile Include="Shared\Dialogs\Models\DialogDateRangeEnum.cs" />
+    <Compile Include="Shared\Dialogs\View\DateRangeDialog.xaml.cs">
+      <DependentUpon>DateRangeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Dialogs\View\Dialog.xaml.cs">
+      <DependentUpon>Dialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Dialogs\View\SelectableTextBlock.cs" />
+    <Compile Include="Shared\Dialogs\View\TextEditorWrapper.cs" />
+    <Compile Include="Shared\Dialogs\Models\ReturnStatus.cs" />
+    <Compile Include="Shared\Objects\MetroPopUpWindow.cs" />
+    <Compile Include="SubForms\Themes\3_Models\Req\SetThemeReq.cs" />
+    <Compile Include="SubForms\Themes\4_Services\PersonalizationService.cs" />
+    <Page Include="SubForms\ChangePassword\1_Views\ChangePasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="SubForms\Locations\LocationListViewModel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubForms\Login\1_Views\LogonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubForms\Permissions\1_Views\PermissionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubForms\Themes\1_Views\PersonalizationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SubForms\ChangePassword\2_ViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="SubForms\Locations\LocationListViewModel.xaml.cs">
+      <DependentUpon>LocationListViewModel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Shared\CustomControls\DateRangeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shared\Dialogs\View\DateRangeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shared\Dialogs\View\Dialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Shared\User\" />
+    <Folder Include="SubForms\Booking\1_Views\" />
+    <Folder Include="SubForms\Booking\2_ViewModels\" />
+    <Folder Include="SubForms\Booking\3_Models\Req\" />
+    <Folder Include="SubForms\Booking\3_Models\Res\" />
+    <Folder Include="SubForms\Booking\4_Services\" />
+    <Folder Include="SubForms\ChangePassword\3_Models\Res\" />
+    <Folder Include="SubForms\Constants\1_Views\" />
+    <Folder Include="SubForms\Constants\2_ViewModels\" />
+    <Folder Include="SubForms\Constants\3_Models\Req\" />
+    <Folder Include="SubForms\Constants\3_Models\Res\" />
+    <Folder Include="SubForms\Constants\4_Services\" />
+    <Folder Include="SubForms\EmployeePermissions\1_Views\" />
+    <Folder Include="SubForms\EmployeePermissions\2_ViewModels\" />
+    <Folder Include="SubForms\EmployeePermissions\3_Models\Req\" />
+    <Folder Include="SubForms\EmployeePermissions\3_Models\Res\" />
+    <Folder Include="SubForms\EmployeePermissions\4_Services\" />
+    <Folder Include="SubForms\Employees\1_Views\" />
+    <Folder Include="SubForms\Employees\2_ViewModels\" />
+    <Folder Include="SubForms\Employees\3_Models\Req\" />
+    <Folder Include="SubForms\Employees\3_Models\Res\" />
+    <Folder Include="SubForms\Employees\4_Services\" />
+    <Folder Include="SubForms\Guests\1_Views\" />
+    <Folder Include="SubForms\Guests\2_ViewModels\" />
+    <Folder Include="SubForms\Guests\3_Models\Req\" />
+    <Folder Include="SubForms\Guests\3_Models\Res\" />
+    <Folder Include="SubForms\Guests\4_Services\" />
+    <Folder Include="SubForms\Locations\1_Views\" />
+    <Folder Include="SubForms\Locations\2_ViewModels\" />
+    <Folder Include="SubForms\Locations\3_Models\Req\" />
+    <Folder Include="SubForms\Locations\3_Models\Res\" />
+    <Folder Include="SubForms\Locations\4_Services\" />
+    <Folder Include="SubForms\Login\3_Models\Res\" />
+    <Folder Include="SubForms\Payments\1_Views\" />
+    <Folder Include="SubForms\Payments\2_ViewModels\" />
+    <Folder Include="SubForms\Payments\3_Models\Req\" />
+    <Folder Include="SubForms\Payments\3_Models\Res\" />
+    <Folder Include="SubForms\Payments\4_Services\" />
+    <Folder Include="SubForms\Permissions\3_Models\Res\" />
+    <Folder Include="SubForms\Permissions\4_Services\" />
+    <Folder Include="SubForms\Rooms\1_Views\" />
+    <Folder Include="SubForms\Rooms\2_ViewModels\" />
+    <Folder Include="SubForms\Rooms\3_Models\Req\" />
+    <Folder Include="SubForms\Rooms\3_Models\Res\" />
+    <Folder Include="SubForms\Rooms\4_Services\" />
+    <Folder Include="SubForms\Themes\3_Models\Res\" />
+    <Folder Include="SubForms\UserSettings\1_Views\" />
+    <Folder Include="SubForms\UserSettings\2_ViewModels\" />
+    <Folder Include="SubForms\UserSettings\3_Models\Req\" />
+    <Folder Include="SubForms\UserSettings\3_Models\Res\" />
+    <Folder Include="SubForms\UserSettings\4_Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

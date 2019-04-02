@@ -1,0 +1,77 @@
+﻿<Controls:MetroWindow x:Class="HotelManagement.MainWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" BorderThickness="1" BorderBrush="Black"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:dialog="clr-namespace:HotelManagement.Shared.Dialogs"
+        dialog:DialogParticipation.Register="{Binding}"
+        Title="{Binding MainWindowTitle}" TitleCharacterCasing="Normal" WindowState="Maximized">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="ContentRendered">
+            <i:InvokeCommandAction Command="{Binding ContentRenderedCmd}"/>
+        </i:EventTrigger>
+
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Menu Grid.Row="0" Grid.Column="0">
+            <MenuItem Header="_Menu">
+                <MenuItem Header="Log On" Command="{Binding MenuCmd}" CommandParameter="LogOn" />
+                <MenuItem Header="Log Off" Command="{Binding MenuCmd}" CommandParameter="LogOff" />
+                <MenuItem Header="Change Password" Command="{Binding MenuCmd}" CommandParameter="ChangePassword" />
+                <MenuItem Header="Personalization" Command="{Binding MenuCmd}" CommandParameter="Personalization" />
+                <MenuItem Header="Restart" Command="{Binding MenuCmd}" CommandParameter="Restart" />
+                <MenuItem Header="Shut Down" Command="{Binding MenuCmd}" CommandParameter="ShutDown" />
+            </MenuItem>
+            <MenuItem Header="_Rooms">
+                <MenuItem Header="Room Management" Command="{Binding MenuCmd}" CommandParameter="RoomManagement" />
+                <MenuItem Header="Reserve a Room" Command="{Binding MenuCmd}" CommandParameter="ReserveaRoom" />
+                <MenuItem Header="Black List" Command="{Binding MenuCmd}" CommandParameter="BlackList" />
+            </MenuItem>
+            <MenuItem Header="_Settings">
+                <MenuItem Header="Manage Permissions" Command="{Binding MenuCmd}" CommandParameter="ManagePermissions" />
+                <MenuItem Header="Users" Command="{Binding MenuCmd}" CommandParameter="Users" />
+            </MenuItem>
+        </Menu>
+
+        <DockPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
+            <Label Content="_Search" Margin="0 0 0 5"/>
+            <ComboBox IsEditable="True" Width="200">
+            </ComboBox>
+        </DockPanel>
+        
+        <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <TabItem Header="Tab Page 1">
+                <Grid>
+                    <!--
+                    <Label Content="A Text Box" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="125,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="159" />
+                    <Label Content="A Combo Box" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="125,46,0,0" VerticalAlignment="Top" Width="159"/>
+                    <RadioButton Content="A Radio Button" HorizontalAlignment="Left" Margin="19,80,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="A CheckBox" HorizontalAlignment="Left" Margin="158,79,0,0" VerticalAlignment="Top"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="125,109,0,0" VerticalAlignment="Top" Width="159"/>
+                    <Label Content="A Date Picker" HorizontalAlignment="Left" Margin="11,109,0,0" VerticalAlignment="Top"/>
+                    <DataGrid x:Name="dataGrid" Margin="10,149,9.667,37.667" Grid.RowSpan="2"/>-->
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tab Page 2">
+                <Grid />
+            </TabItem>
+        </TabControl>
+        
+    </Grid>
+</Controls:MetroWindow>

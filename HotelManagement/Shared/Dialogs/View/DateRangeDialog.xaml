@@ -1,0 +1,70 @@
+﻿<Dialog:CustomDialog x:Class="HotelManagement.Shared.Models.Dialogs.View.DateRangeDialog"
+    x:Name="DateRangeDialogView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+    xmlns:customcontrols="clr-namespace:HotelManagement.Shared.CustomControls"
+    mc:Ignorable="d"
+    PreviewKeyDown="Enter_KeyDown"
+    Loaded="DialogueIsLoaded">
+
+    <Grid VerticalAlignment="Top" Margin="0, 0 ,0 ,0">
+
+        <StackPanel x:Name="mainStackPanel" Height="Auto" VerticalAlignment="Top">
+
+            <TextBlock x:Name="TitleLabel"
+                        TextWrapping="Wrap"
+                        Text="{Binding Path=title}"
+                        Foreground="{DynamicResource AccentColorBrush}" />
+
+            <TextBlock x:Name="DescriptionLabel" Height="26" VerticalAlignment="Center"
+                        TextWrapping="Wrap"
+                        Text="{Binding Path=description}"
+                        Foreground="{DynamicResource AccentColorBrush}" />
+
+            <!--single date-->
+            <UniformGrid x:Name="OneDateDockPanel" Columns="2">
+
+                <DockPanel Height="26">
+                    <Label x:Name="OneDateStartLabel" Content="{Binding Path=dateFromLabel}" />
+                    <DatePicker x:Name="OneDateFrom" SelectedDate="{Binding Path=defaultDateFrom}" />
+                </DockPanel>
+
+            </UniformGrid>
+
+            <!--date range date-->
+            <DockPanel x:Name="DateRangeDockPanel" Height="26">
+                <Label x:Name="DateRangeStartLabel" Content="{Binding Path=dateFromLabel}" />
+                <customcontrols:DateRangeControl x:Name="DateRangeFromTo" BeginDate="{Binding Path=defaultDateFrom}" EndDate="{Binding Path=defaultDateTo}" />
+            </DockPanel>
+
+            <!--two dates-->
+            <UniformGrid x:Name="TwoDateDockPanel" Columns="2">
+
+                <DockPanel>
+                    <Label x:Name="TwoDateStartLabel" Content="{Binding Path=dateFromLabel}" />
+                    <DatePicker x:Name="TwoDateFrom" SelectedDate="{Binding Path=defaultDateFrom, UpdateSourceTrigger=PropertyChanged}" />
+                </DockPanel>
+
+                <DockPanel>
+                    <Label x:Name="TwoDateEndLabel" Content="{Binding Path=dateToLabel}" />
+                    <DatePicker x:Name="TwoDateTo" SelectedDate="{Binding Path=defaultDateTo, UpdateSourceTrigger=PropertyChanged}" />
+                </DockPanel>
+
+            </UniformGrid>
+
+            <StackPanel x:Name="BtnStackPanel"                     
+                        Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="Auto" >
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="10,10,10,0"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Dialog:CustomDialog>

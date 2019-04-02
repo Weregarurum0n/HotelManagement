@@ -1,0 +1,43 @@
+﻿<controls:MetroWindow xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls" 
+        x:Class="HotelManagement.FormView.Locations.LocationListViewModel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="LocationListViewModel" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Column="0" Grid.Row="0" Margin="5" controls:TextBoxHelper.Watermark="Filter By Country" />
+        <CheckBox Grid.Column="1" Grid.Row="0" Content="Inc. Dis." HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" />
+        <DataGrid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="5" />
+        <Button  Grid.Column="1" Grid.Row="2" Content="New _Country" HorizontalAlignment="Right" Margin="5"  VerticalAlignment="Bottom" Width="75"/>
+
+        <TextBox Grid.Column="2" Grid.Row="0" Margin="5" controls:TextBoxHelper.Watermark="Filter By State" />
+        <CheckBox Grid.Column="3" Grid.Row="0" Content="Inc. Dis." HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" />
+        <DataGrid Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="5" />
+        <Button  Grid.Column="3" Grid.Row="2" Content="_New _State" HorizontalAlignment="Right" Margin="5"  VerticalAlignment="Bottom" Width="75"/>
+
+        <TextBox Grid.Column="4" Grid.Row="0" Margin="5" controls:TextBoxHelper.Watermark="Filter By City" />
+        <CheckBox Grid.Column="5" Grid.Row="0" Content="Inc. Dis." HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" />
+        <DataGrid Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" Margin="5" />
+        <Button  Grid.Column="5" Grid.Row="2" Content="_New Cit_y" HorizontalAlignment="Right" Margin="5"  VerticalAlignment="Bottom" Width="75"/>
+
+
+
+
+    </Grid>
+</controls:MetroWindow>
