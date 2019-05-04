@@ -12,7 +12,7 @@ namespace HotelManagement.SubForms.ChangePassword._2_ViewModels
 
         private IDialogObjects _dialogs;
 
-        private ChangePasswordReq _saveReq;
+        private SetPassword _saveReq;
         private string _currentPassword;
         private string _newPassword;
         private string _confirmPassword;
@@ -28,7 +28,7 @@ namespace HotelManagement.SubForms.ChangePassword._2_ViewModels
 
             SaveCmd = new DelegateCommand(OnSave);
 
-            SaveReq = new ChangePasswordReq();
+            SaveReq = new SetPassword();
 
             CurrentPassword = string.Empty;
             NewPassword = string.Empty;
@@ -41,13 +41,13 @@ namespace HotelManagement.SubForms.ChangePassword._2_ViewModels
 
         public ICommand SaveCmd { get; private set; }
 
-        public ChangePasswordReq SaveReq
+        public SetPassword SaveReq
         {
             get { return _saveReq; }
             set
             {
                 _saveReq = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -57,7 +57,7 @@ namespace HotelManagement.SubForms.ChangePassword._2_ViewModels
             set
             {
                 _currentPassword = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -67,7 +67,7 @@ namespace HotelManagement.SubForms.ChangePassword._2_ViewModels
             set
             {
                 _newPassword = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -77,7 +77,7 @@ namespace HotelManagement.SubForms.ChangePassword._2_ViewModels
             set
             {
                 _confirmPassword = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -87,18 +87,15 @@ namespace HotelManagement.SubForms.ChangePassword._2_ViewModels
 
         public void OnSave()
         {
-
-            var i = UsersPermissions;
-
             if (NewPassword != ConfirmPassword)
             {
                 _dialogs.DisplayErrorDialog("Password Mismatch", "New Password and Confirm Password does not Match");
                 return;
             }
 
-            IsLoading = true;
+            IsLoading(true);
             //save
-            IsLoading = false;
+            IsLoading(false);
         }
 
         #endregion

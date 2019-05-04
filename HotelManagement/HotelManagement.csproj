@@ -58,6 +58,9 @@
     <Reference Include="Prism, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Core.7.1.0.431\lib\net45\Prism.dll</HintPath>
     </Reference>
+    <Reference Include="Prism.Unity.Wpf, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Unity.7.1.0.431\lib\net45\Prism.Unity.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Prism.Wpf, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Wpf.7.1.0.431\lib\net45\Prism.Wpf.dll</HintPath>
     </Reference>
@@ -65,6 +68,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Wpf.7.1.0.431\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -78,6 +84,12 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Unity.Abstractions, Version=3.3.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.3.3.1\lib\net46\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.8.11.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.8.11\lib\net46\Unity.Container.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -87,7 +99,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Shared\BaseClass\SharedBaseService.cs" />
+    <Compile Include="Shared\BaseClass\ResponseStatus.cs" />
     <Compile Include="Shared\Convert\Extensions\SafeSqlConvert.cs" />
     <Compile Include="Shared\Convert\Xaml\BooleanToYesNoConverter.cs" />
     <Compile Include="Shared\Convert\Xaml\BoolToVisConverter.cs" />
@@ -101,24 +113,73 @@
     <Compile Include="Shared\Convert\Xaml\StringToIntConverter.cs" />
     <Compile Include="Shared\Convert\Xaml\UtcToLocalDateTimeConverter.cs" />
     <Compile Include="Shared\HelperClass\PasswordHelper.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="SubForms\Bookings\3_Models\Req\GetBookings.cs" />
+    <Compile Include="SubForms\Bookings\3_Models\Req\SetBooking.cs" />
+    <Compile Include="SubForms\Bookings\3_Models\Res\Booking.cs" />
+    <Compile Include="SubForms\Bookings\4_Services\BookingsService.cs" />
+    <Compile Include="SubForms\Bookings\4_Services\IBookingsService.cs" />
     <Compile Include="SubForms\ChangePassword\1_Views\ChangePasswordView.xaml.cs">
       <DependentUpon>ChangePasswordView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SubForms\ChangePassword\3_Models\Req\ChangePasswordReq.cs" />
-    <Compile Include="SubForms\ChangePassword\4_Services\ChangePasswordService.cs" />
+    <Compile Include="SubForms\ChangePassword\3_Models\Req\SetPassword.cs" />
+    <Compile Include="SubForms\ChangePassword\4_Services\ChangePasswordsService.cs" />
+    <Compile Include="SubForms\ChangePassword\4_Services\IChangePasswordsService.cs" />
+    <Compile Include="SubForms\Constants\3_Models\Req\GetConstants.cs" />
+    <Compile Include="SubForms\Constants\3_Models\Req\SetConstant.cs" />
+    <Compile Include="SubForms\Constants\3_Models\Res\Constant.cs" />
+    <Compile Include="SubForms\Constants\4_Services\ConstantsService.cs" />
+    <Compile Include="SubForms\Constants\4_Services\IConstantsService.cs" />
+    <Compile Include="SubForms\EmployeePermissions\3_Models\Req\SetEmployeePermission.cs" />
+    <Compile Include="SubForms\EmployeePermissions\3_Models\Res\EmployeePermission.cs" />
+    <Compile Include="SubForms\EmployeePermissions\4_Services\EmployeePermissionsService.cs" />
+    <Compile Include="SubForms\EmployeePermissions\4_Services\IEmployeePermissionsService.cs" />
+    <Compile Include="SubForms\Employees\3_Models\Req\GetEmployees.cs" />
+    <Compile Include="SubForms\Employees\3_Models\Req\SetEmployee.cs" />
+    <Compile Include="SubForms\Employees\3_Models\Res\Employee.cs" />
+    <Compile Include="SubForms\Employees\3_Models\Res\EmployeePermission.cs" />
+    <Compile Include="SubForms\Employees\4_Services\EmployeesService.cs" />
+    <Compile Include="SubForms\Employees\4_Services\IEmployeesService.cs" />
+    <Compile Include="SubForms\Guests\3_Models\Req\GetGuests.cs" />
+    <Compile Include="SubForms\Guests\3_Models\Req\SetGuest.cs" />
+    <Compile Include="SubForms\Guests\3_Models\Res\Guest.cs" />
+    <Compile Include="SubForms\Guests\4_Services\GuestsService.cs" />
+    <Compile Include="SubForms\Guests\4_Services\IGuestsService.cs" />
+    <Compile Include="SubForms\Locations\3_Models\Req\SetCity.cs" />
+    <Compile Include="SubForms\Locations\3_Models\Req\SetCountry.cs" />
+    <Compile Include="SubForms\Locations\3_Models\Req\SetState.cs" />
+    <Compile Include="SubForms\Locations\3_Models\Res\City.cs" />
+    <Compile Include="SubForms\Locations\3_Models\Res\Country.cs" />
+    <Compile Include="SubForms\Locations\3_Models\Res\State.cs" />
+    <Compile Include="SubForms\Locations\4_Services\ILocationsService.cs" />
+    <Compile Include="SubForms\Locations\4_Services\LocationsService.cs" />
     <Compile Include="SubForms\Login\1_Views\LogonView.xaml.cs">
       <DependentUpon>LogonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="SubForms\Login\2_ViewModels\LogonViewModel.cs" />
-    <Compile Include="SubForms\Login\3_Models\Req\LogonReq.cs" />
+    <Compile Include="SubForms\Login\3_Models\Req\AuthLogin.cs" />
+    <Compile Include="SubForms\Login\4_Services\ILogonService.cs" />
     <Compile Include="SubForms\Login\4_Services\LogonService.cs" />
+    <Compile Include="SubForms\Payments\3_Models\Req\GetPayments.cs" />
+    <Compile Include="SubForms\Payments\3_Models\Req\SetPayment.cs" />
+    <Compile Include="SubForms\Payments\3_Models\Res\Payment.cs" />
+    <Compile Include="SubForms\Payments\4_Services\IPaymentsService.cs" />
+    <Compile Include="SubForms\Payments\4_Services\PaymentsService.cs" />
     <Compile Include="SubForms\Permissions\1_Views\PermissionsView.xaml.cs">
       <DependentUpon>PermissionsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="SubForms\Permissions\2_ViewModels\PermissionsViewModel.cs" />
-    <Compile Include="SubForms\Permissions\3_Models\Req\GetUserPermissionsReq.cs" />
-    <Compile Include="SubForms\Permissions\3_Models\Req\SetUserPermissionsReq.cs" />
+    <Compile Include="SubForms\Permissions\3_Models\Req\GetPermissions.cs" />
+    <Compile Include="SubForms\Permissions\3_Models\Req\SetPermission.cs" />
+    <Compile Include="SubForms\Permissions\3_Models\Res\Permission.cs" />
+    <Compile Include="SubForms\Permissions\4_Services\IPermissionsService.cs" />
+    <Compile Include="SubForms\Permissions\4_Services\PermissionsService.cs" />
+    <Compile Include="SubForms\Rooms\3_Models\Req\GetRooms.cs" />
+    <Compile Include="SubForms\Rooms\3_Models\Req\SetRoom.cs" />
+    <Compile Include="SubForms\Rooms\3_Models\Res\Room.cs" />
+    <Compile Include="SubForms\Rooms\4_Services\IRoomsService.cs" />
+    <Compile Include="SubForms\Rooms\4_Services\RoomsService.cs" />
     <Compile Include="SubForms\Themes\1_Views\PersonalizationView.xaml.cs">
       <DependentUpon>PersonalizationView.xaml</DependentUpon>
     </Compile>
@@ -145,12 +206,18 @@
     <Compile Include="Shared\Dialogs\Models\ReturnStatus.cs" />
     <Compile Include="Shared\Objects\MetroPopUpWindow.cs" />
     <Compile Include="SubForms\Themes\3_Models\Req\SetThemeReq.cs" />
+    <Compile Include="SubForms\Themes\4_Services\IPersonalizationService.cs" />
     <Compile Include="SubForms\Themes\4_Services\PersonalizationService.cs" />
+    <Compile Include="SubForms\UserSettings\1_Views\UserSettings.xaml.cs">
+      <DependentUpon>UserSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\UserSettings\4_Services\IUserSettingsService.cs" />
+    <Compile Include="SubForms\UserSettings\4_Services\UserSettingsService.cs" />
     <Page Include="SubForms\ChangePassword\1_Views\ChangePasswordView.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="SubForms\Locations\LocationListViewModel.xaml">
+    <Page Include="SubForms\Locations\2_ViewModels\LocationListViewModel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,7 +242,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SubForms\ChangePassword\2_ViewModels\ChangePasswordViewModel.cs" />
-    <Compile Include="SubForms\Locations\LocationListViewModel.xaml.cs">
+    <Compile Include="SubForms\Locations\2_ViewModels\LocationListViewModel.xaml.cs">
       <DependentUpon>LocationListViewModel.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
@@ -192,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Shared\Dialogs\View\Dialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubForms\UserSettings\1_Views\UserSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,6 +285,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="AppSettings.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -224,57 +296,27 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Shared\User\" />
-    <Folder Include="SubForms\Booking\1_Views\" />
-    <Folder Include="SubForms\Booking\2_ViewModels\" />
-    <Folder Include="SubForms\Booking\3_Models\Req\" />
-    <Folder Include="SubForms\Booking\3_Models\Res\" />
-    <Folder Include="SubForms\Booking\4_Services\" />
+    <Folder Include="SubForms\Bookings\1_Views\" />
+    <Folder Include="SubForms\Bookings\2_ViewModels\" />
     <Folder Include="SubForms\ChangePassword\3_Models\Res\" />
     <Folder Include="SubForms\Constants\1_Views\" />
     <Folder Include="SubForms\Constants\2_ViewModels\" />
-    <Folder Include="SubForms\Constants\3_Models\Req\" />
-    <Folder Include="SubForms\Constants\3_Models\Res\" />
-    <Folder Include="SubForms\Constants\4_Services\" />
     <Folder Include="SubForms\EmployeePermissions\1_Views\" />
     <Folder Include="SubForms\EmployeePermissions\2_ViewModels\" />
-    <Folder Include="SubForms\EmployeePermissions\3_Models\Req\" />
-    <Folder Include="SubForms\EmployeePermissions\3_Models\Res\" />
-    <Folder Include="SubForms\EmployeePermissions\4_Services\" />
     <Folder Include="SubForms\Employees\1_Views\" />
     <Folder Include="SubForms\Employees\2_ViewModels\" />
-    <Folder Include="SubForms\Employees\3_Models\Req\" />
-    <Folder Include="SubForms\Employees\3_Models\Res\" />
-    <Folder Include="SubForms\Employees\4_Services\" />
     <Folder Include="SubForms\Guests\1_Views\" />
     <Folder Include="SubForms\Guests\2_ViewModels\" />
-    <Folder Include="SubForms\Guests\3_Models\Req\" />
-    <Folder Include="SubForms\Guests\3_Models\Res\" />
-    <Folder Include="SubForms\Guests\4_Services\" />
     <Folder Include="SubForms\Locations\1_Views\" />
-    <Folder Include="SubForms\Locations\2_ViewModels\" />
-    <Folder Include="SubForms\Locations\3_Models\Req\" />
-    <Folder Include="SubForms\Locations\3_Models\Res\" />
-    <Folder Include="SubForms\Locations\4_Services\" />
     <Folder Include="SubForms\Login\3_Models\Res\" />
     <Folder Include="SubForms\Payments\1_Views\" />
     <Folder Include="SubForms\Payments\2_ViewModels\" />
-    <Folder Include="SubForms\Payments\3_Models\Req\" />
-    <Folder Include="SubForms\Payments\3_Models\Res\" />
-    <Folder Include="SubForms\Payments\4_Services\" />
-    <Folder Include="SubForms\Permissions\3_Models\Res\" />
-    <Folder Include="SubForms\Permissions\4_Services\" />
     <Folder Include="SubForms\Rooms\1_Views\" />
     <Folder Include="SubForms\Rooms\2_ViewModels\" />
-    <Folder Include="SubForms\Rooms\3_Models\Req\" />
-    <Folder Include="SubForms\Rooms\3_Models\Res\" />
-    <Folder Include="SubForms\Rooms\4_Services\" />
     <Folder Include="SubForms\Themes\3_Models\Res\" />
-    <Folder Include="SubForms\UserSettings\1_Views\" />
     <Folder Include="SubForms\UserSettings\2_ViewModels\" />
     <Folder Include="SubForms\UserSettings\3_Models\Req\" />
     <Folder Include="SubForms\UserSettings\3_Models\Res\" />
-    <Folder Include="SubForms\UserSettings\4_Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

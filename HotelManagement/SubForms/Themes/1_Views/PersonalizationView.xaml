@@ -4,6 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d" BorderThickness="0" BorderBrush="{DynamicResource AccentColorBrush}"
         xmlns:dialog="clr-namespace:HotelManagement.Shared.Dialogs"
         dialog:DialogParticipation.Register="{Binding}"
@@ -16,32 +17,32 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <GroupBox Grid.Row="0" Header="Accent">
+        <GroupBox Grid.Row="0" Header="Accent" Margin="0 10 0 0">
 
             <UniformGrid Columns="5" Rows="4">
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#ff0000" Content="Red" CommandParameter="Red" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="Green  " Content="Green" CommandParameter="Green" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#0000ff" Content="Blue" CommandParameter="Blue" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#800080" Content="Purple" CommandParameter="Purple" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#ffa500" Content="Orange" CommandParameter="Orange" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#00ff00" Content="Lime" CommandParameter="Lime" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#50c878" Content="Emerald" CommandParameter="Emerald" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#008080" Content="Teal" CommandParameter="Teal" />
-                <!--<Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#00ffff" Content="Cyan" CommandParameter="Cyan" />-->
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#0047ab" Content="Cobalt" CommandParameter="Cobalt" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#4b0082" Content="Indigo" CommandParameter="Indigo" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#ee82ee" Content="Violet" CommandParameter="Violet" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#ffc0cb" Content="Pink" CommandParameter="Pink" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#ff00ff" Content="Magenta" CommandParameter="Magenta" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#dc143c" Content="Crimson" CommandParameter="Crimson" />
-                <!--<Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#ffbf00" Content="Amber" CommandParameter="Amber" />-->
-                <!--<Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#ffff00" Content="Yellow" CommandParameter="Yellow" />-->
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#a52a2a" Content="Brown" CommandParameter="Brown" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#808000" Content="Olive" CommandParameter="Olive" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#808045" Content="Steel" CommandParameter="Steel" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#e0b0ff" Content="Mauve" CommandParameter="Mauve" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#483c32" Content="Taupe" CommandParameter="Taupe" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#882d17" Content="Sienna" CommandParameter="Sienna" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CCE51400" Content="Red" CommandParameter="Red" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC60A917" Content="Green" CommandParameter="Green" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC119EDA" Content="Blue" CommandParameter="Blue" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC6459DF" Content="Purple" CommandParameter="Purple" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CCFA6800" Content="Orange" CommandParameter="Orange" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CCA4C400" Content="Lime" CommandParameter="Lime" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC008A00" Content="Emerald" CommandParameter="Emerald" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC00ABA9" Content="Teal" CommandParameter="Teal" />
+                <!--<Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background= Content="Cyan" CommandParameter="Cyan" />-->
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC0050EF" Content="Cobalt" CommandParameter="Cobalt" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC6A00FF" Content="Indigo" CommandParameter="Indigo" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CCAA00FF" Content="Violet" CommandParameter="Violet" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CCF472D0" Content="Pink" CommandParameter="Pink" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CCD80073" Content="Magenta" CommandParameter="Magenta" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CCA20025" Content="Crimson" CommandParameter="Crimson" />
+                <!--<Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background= Content="Amber" CommandParameter="Amber" />-->
+                <!--<Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background= Content="Yellow" CommandParameter="Yellow" />-->
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC825A2C" Content="Brown" CommandParameter="Brown" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC6D8764" Content="Olive" CommandParameter="Olive" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC647687" Content="Steel" CommandParameter="Steel" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC76608A" Content="Mauve" CommandParameter="Mauve" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CC87794E" Content="Taupe" CommandParameter="Taupe" />
+                <Button Margin="5" BorderThickness="0" Command="{Binding AccentCmd}" Background="#CCA0522D" Content="Sienna" CommandParameter="Sienna" />
             </UniformGrid>
 
         </GroupBox>
@@ -49,8 +50,21 @@
         <GroupBox Grid.Row="1" Header="Theme">
 
             <UniformGrid Columns="2" Rows="1">
-                <Button Margin="5" BorderThickness="0" Command="{Binding ThemeCmd}" Background="Black" Foreground="White" Content="Black" CommandParameter="BaseDark" />
-                <Button Margin="5" BorderThickness="0" Command="{Binding ThemeCmd}" Background="White" Foreground="Black" Content="White" CommandParameter="BaseLight" />
+
+                <controls:Tile Title="Lights off" Width="Auto" Height="Auto" Grid.Row="0" Command="{Binding ThemeCmd}" Background="Black" Foreground="White" CommandParameter="BaseDark">
+                <iconPacks:PackIconModern Height="Auto" Width="Auto"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Kind="Moon" />
+              </controls:Tile>
+
+                <controls:Tile Title="Lights On" Width="Auto" Height="Auto" Grid.Row="1" Command="{Binding ThemeCmd}" Background="White" Foreground="Black" CommandParameter="BaseLight">
+                <iconPacks:PackIconModern Height="Auto" Width="Auto"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Kind="WeatherSun" />
+              </controls:Tile>
+              
             </UniformGrid>
 
         </GroupBox>

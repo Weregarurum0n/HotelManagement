@@ -12,7 +12,7 @@ namespace HotelManagement.SubForms.Login._2_ViewModels
 
         private IDialogObjects _dialogs;
 
-        private LogonReq _logonReq;
+        private AuthLogin _logonReq;
         private string _userName;
         private string _password;
 
@@ -25,12 +25,16 @@ namespace HotelManagement.SubForms.Login._2_ViewModels
             _dialogs = new DialogObjects();
             _dialogs.SetViewModel(this);
 
+            IsLoading(false);
+
             LogonCmd = new DelegateCommand(OnLogon);
 
-            LogonReq = new LogonReq();
+            LogonReq = new AuthLogin();
 
             UserName = string.Empty;
             Password = string.Empty;
+
+            var b = App.Current.Properties["LoginUser"];
         }
 
         #endregion
@@ -39,13 +43,13 @@ namespace HotelManagement.SubForms.Login._2_ViewModels
 
         public ICommand LogonCmd { get; private set; }
 
-        public LogonReq LogonReq
+        public AuthLogin LogonReq
         {
             get { return _logonReq; }
             set
             {
                 _logonReq = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -55,7 +59,7 @@ namespace HotelManagement.SubForms.Login._2_ViewModels
             set
             {
                 _userName = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -65,7 +69,7 @@ namespace HotelManagement.SubForms.Login._2_ViewModels
             set
             {
                 _password = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
         
@@ -75,21 +79,21 @@ namespace HotelManagement.SubForms.Login._2_ViewModels
 
         public void OnLogon()
         {
-            if (string.IsNullOrEmpty(UserName))
-            {
-                _dialogs.DisplayErrorDialog("Username is Required", string.Empty);
-                return;
-            }
+            //if (string.IsNullOrEmpty(UserName))
+            //{
+            //    _dialogs.DisplayErrorDialog("Username is Required", string.Empty);
+            //    return;
+            //}
 
-            if (string.IsNullOrEmpty(Password))
-            {
-                _dialogs.DisplayErrorDialog("Password is Required", string.Empty);
-                return;
-            }
+            //if (string.IsNullOrEmpty(Password))
+            //{
+            //    _dialogs.DisplayErrorDialog("Password is Required", string.Empty);
+            //    return;
+            //}
 
-            IsLoading = true;
+            IsLoading(true);
             //Attempt logon
-            IsLoading = false;
+            IsLoading(false);
         }
 
         #endregion

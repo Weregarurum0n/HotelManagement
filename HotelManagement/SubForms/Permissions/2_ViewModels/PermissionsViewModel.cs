@@ -12,8 +12,8 @@ namespace HotelManagement.SubForms.Permissions._2_ViewModels
 
         private IDialogObjects _dialogs;
 
-        private GetUserPermissionsReq _getPermissionsReq;
-        private SetUserPermissionsReq _setPermissionsReq;
+        private GetPermissions _getPermissionsReq;
+        private SetPermission _setPermissionsReq;
         private string _searchUser;
         private string _searchPermission;
 
@@ -29,8 +29,8 @@ namespace HotelManagement.SubForms.Permissions._2_ViewModels
             SearchCmd = new DelegateCommand(OnSearchUser);
             MenuCmd = new DelegateCommand(OnSetUserPermissions);
 
-            GetPermissionsReq = new GetUserPermissionsReq();
-            SetPermissionsReq = new SetUserPermissionsReq();
+            GetPermissionsReq = new GetPermissions();
+            SetPermissionsReq = new SetPermission();
 
             SearchUser = string.Empty;
             SearchPermission = string.Empty;
@@ -43,23 +43,23 @@ namespace HotelManagement.SubForms.Permissions._2_ViewModels
         public ICommand SearchCmd { get; private set; }
         public ICommand MenuCmd { get; private set; }
 
-        public GetUserPermissionsReq GetPermissionsReq
+        public GetPermissions GetPermissionsReq
         {
             get { return _getPermissionsReq; }
             set
             {
                 _getPermissionsReq = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
-        public SetUserPermissionsReq SetPermissionsReq
+        public SetPermission SetPermissionsReq
         {
             get { return _setPermissionsReq; }
             set
             {
                 _setPermissionsReq = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -69,7 +69,7 @@ namespace HotelManagement.SubForms.Permissions._2_ViewModels
             set
             {
                 _searchUser = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -79,7 +79,7 @@ namespace HotelManagement.SubForms.Permissions._2_ViewModels
             set
             {
                 _searchPermission = value;
-                //RaisePropertyChanged();
+                RaisePropertyChanged();
             }
         }
 

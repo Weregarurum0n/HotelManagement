@@ -1,11 +1,14 @@
 ﻿using HotelManagement.Shared.BaseClass;
+using HotelManagement.Shared.Convert.Extensions;
 using HotelManagement.Shared.Dialogs;
 using HotelManagement.SubForms.ChangePassword._1_Views;
 using HotelManagement.SubForms.Login._1_Views;
 using HotelManagement.SubForms.Permissions._1_Views;
 using HotelManagement.SubForms.Themes._1_Views;
+using MahApps.Metro.Controls;
 using Prism.Commands;
 using System;
+using System.Configuration;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
@@ -33,7 +36,7 @@ namespace HotelManagement
 
             MainWindowTitle = "Hotel Management";
 
-            UsersPermissions = new System.Collections.Generic.List<int> {1, 2, 3};
+            var a = ConfigurationManager.GetSection("ApplicationTitle").ToSafeString();
         }
 
         #endregion
@@ -69,11 +72,17 @@ namespace HotelManagement
                 return;
             }
 
-            //if (!HasPermissions((int)selectedMenu))
-            //{
-            //    _dialogs.DisplayNoPermissionDialog();
-            //    return;
-            //}
+            if (string.IsNullOrEmpty(App.Current.Properties["LoginUser"].ToSafeString()))
+            {
+                _dialogs.DisplayErrorDialog("Please log in", string.Empty);
+                return;
+            }
+
+            if (!HasPermissions((int)selectedMenu))
+            {
+                _dialogs.DisplayNoPermissionDialog();
+                return;
+            }
 
             switch (selectedMenu)
             {
@@ -121,7 +130,7 @@ namespace HotelManagement
 
         private void ShowWindow(object content, string title, ResizeMode canResize = ResizeMode.CanResize, bool isModal = true)
         {
-            var window = new Window()
+            var window = new MetroWindow()
             {
                 Content = content,
                 SizeToContent = SizeToContent.WidthAndHeight,

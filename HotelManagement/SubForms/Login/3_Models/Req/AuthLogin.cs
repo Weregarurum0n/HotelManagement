@@ -1,8 +1,8 @@
 ﻿namespace HotelManagement.SubForms.Login._3_Models.Req
 {
-    public class LogonReq
+    public class AuthLogin
     {
-        public int UserId { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
     }
 }

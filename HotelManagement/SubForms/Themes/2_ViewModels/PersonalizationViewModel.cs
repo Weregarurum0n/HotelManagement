@@ -2,6 +2,7 @@
 using HotelManagement.Shared.Dialogs;
 using MahApps.Metro;
 using Prism.Commands;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Input;
 

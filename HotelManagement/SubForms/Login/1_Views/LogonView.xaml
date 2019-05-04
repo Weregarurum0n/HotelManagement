@@ -41,7 +41,7 @@
                          helper:PasswordHelper.Password="{Binding NewPassword, UpdateSourceTrigger=PropertyChanged, ElementName=plain, Mode=TwoWay}" />
             </DockPanel>
 
-            <Button Margin="0 5 0 0" BorderThickness="0" Command="{Binding SaveCmd}" Content="_Log On" 
+            <Button Margin="0 5 0 0" BorderThickness="0" Command="{Binding LogonCmd}" Content="_Log On" 
                     HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Grid.Row="1" />
 
         </StackPanel>
@@ -49,4 +49,5 @@
         <controls:ProgressRing IsActive="{Binding IsActive}" />
 
     </Grid>
+    
 </UserControl>
