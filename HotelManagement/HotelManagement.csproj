@@ -55,6 +55,9 @@
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Prism, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Core.7.1.0.431\lib\net45\Prism.dll</HintPath>
     </Reference>
@@ -99,7 +102,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Shared\BaseClass\ResponseStatus.cs" />
+    <Compile Include="Shared\BaseClass\ApiResponse.cs" />
+    <Compile Include="Shared\BaseClass\ISharedBaseService.cs" />
+    <Compile Include="Shared\BaseClass\SharedBaseService.cs" />
     <Compile Include="Shared\Convert\Extensions\SafeSqlConvert.cs" />
     <Compile Include="Shared\Convert\Xaml\BooleanToYesNoConverter.cs" />
     <Compile Include="Shared\Convert\Xaml\BoolToVisConverter.cs" />
@@ -113,6 +118,7 @@
     <Compile Include="Shared\Convert\Xaml\StringToIntConverter.cs" />
     <Compile Include="Shared\Convert\Xaml\UtcToLocalDateTimeConverter.cs" />
     <Compile Include="Shared\HelperClass\PasswordHelper.cs" />
+    <Compile Include="Shared\Objects\UrlUtils.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="SubForms\Bookings\3_Models\Req\GetBookings.cs" />
     <Compile Include="SubForms\Bookings\3_Models\Req\SetBooking.cs" />
@@ -159,6 +165,7 @@
     </Compile>
     <Compile Include="SubForms\Login\2_ViewModels\LogonViewModel.cs" />
     <Compile Include="SubForms\Login\3_Models\Req\AuthLogin.cs" />
+    <Compile Include="SubForms\Login\3_Models\Res\UserDetail.cs" />
     <Compile Include="SubForms\Login\4_Services\ILogonService.cs" />
     <Compile Include="SubForms\Login\4_Services\LogonService.cs" />
     <Compile Include="SubForms\Payments\3_Models\Req\GetPayments.cs" />
@@ -203,7 +210,7 @@
     </Compile>
     <Compile Include="Shared\Dialogs\View\SelectableTextBlock.cs" />
     <Compile Include="Shared\Dialogs\View\TextEditorWrapper.cs" />
-    <Compile Include="Shared\Dialogs\Models\ReturnStatus.cs" />
+    <Compile Include="Shared\Objects\ReturnStatus.cs" />
     <Compile Include="Shared\Objects\MetroPopUpWindow.cs" />
     <Compile Include="SubForms\Themes\3_Models\Req\SetThemeReq.cs" />
     <Compile Include="SubForms\Themes\4_Services\IPersonalizationService.cs" />
@@ -308,7 +315,6 @@
     <Folder Include="SubForms\Guests\1_Views\" />
     <Folder Include="SubForms\Guests\2_ViewModels\" />
     <Folder Include="SubForms\Locations\1_Views\" />
-    <Folder Include="SubForms\Login\3_Models\Res\" />
     <Folder Include="SubForms\Payments\1_Views\" />
     <Folder Include="SubForms\Payments\2_ViewModels\" />
     <Folder Include="SubForms\Rooms\1_Views\" />

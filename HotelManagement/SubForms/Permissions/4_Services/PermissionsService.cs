@@ -1,4 +1,4 @@
-﻿using HotelManagement.Shared.BaseClass;
+﻿using HotelManagement.Shared.Models.Objects;
 using HotelManagement.SubForms.Permissions._3_Models.Req;
 using HotelManagement.SubForms.Permissions._3_Models.Res;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace HotelManagement.SubForms.Permissions._4_Services
             return null;
         }
 
-        public ResponseStatus SetPermission(SetPermission req)
+        public ReturnStatus SetPermission(SetPermission req)
         {
             return null;
         }

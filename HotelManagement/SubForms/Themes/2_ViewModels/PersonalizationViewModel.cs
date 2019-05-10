@@ -1,5 +1,6 @@
 ﻿using HotelManagement.Shared.BaseClass;
 using HotelManagement.Shared.Dialogs;
+using HotelManagement.SubForms.Themes._4_Services;
 using MahApps.Metro;
 using Prism.Commands;
 using System.Drawing;
@@ -13,6 +14,7 @@ namespace HotelManagement.SubForms.Themes._2_ViewModels
         #region Fields
 
         private IDialogObjects _dialogs;
+        private IPersonalizationService _service;
 
         #endregion
 
@@ -22,6 +24,8 @@ namespace HotelManagement.SubForms.Themes._2_ViewModels
         {
             _dialogs = new DialogObjects();
             _dialogs.SetViewModel(this);
+
+            _service = new PersonalizationService();
 
             AccentCmd = new DelegateCommand<string>(OnSetAccent);
             ThemeCmd = new DelegateCommand<string>(OnSetTheme);

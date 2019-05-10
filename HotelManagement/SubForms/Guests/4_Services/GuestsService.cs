@@ -1,4 +1,4 @@
-﻿using HotelManagement.Shared.BaseClass;
+﻿using HotelManagement.Shared.Models.Objects;
 using HotelManagement.SubForms.Guests._3_Models.Req;
 using HotelManagement.SubForms.Guests._3_Models.Res;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace HotelManagement.SubForms.Guests._4_Services
             return null;
         }
 
-        public ResponseStatus SetGuest(SetGuest req)
+        public ReturnStatus SetGuest(SetGuest req)
         {
             return null;
         }

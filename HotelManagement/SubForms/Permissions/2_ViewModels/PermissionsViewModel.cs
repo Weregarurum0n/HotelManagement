@@ -1,6 +1,7 @@
 ﻿using HotelManagement.Shared.BaseClass;
 using HotelManagement.Shared.Dialogs;
 using HotelManagement.SubForms.Permissions._3_Models.Req;
+using HotelManagement.SubForms.Permissions._4_Services;
 using Prism.Commands;
 using System.Windows.Input;
 
@@ -11,6 +12,7 @@ namespace HotelManagement.SubForms.Permissions._2_ViewModels
         #region Fields
 
         private IDialogObjects _dialogs;
+        private IPermissionsService _service;
 
         private GetPermissions _getPermissionsReq;
         private SetPermission _setPermissionsReq;
@@ -25,6 +27,8 @@ namespace HotelManagement.SubForms.Permissions._2_ViewModels
         {
             _dialogs = new DialogObjects();
             _dialogs.SetViewModel(this);
+
+            _service = new PermissionsService();
 
             SearchCmd = new DelegateCommand(OnSearchUser);
             MenuCmd = new DelegateCommand(OnSetUserPermissions);

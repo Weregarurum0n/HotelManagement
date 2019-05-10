@@ -72,17 +72,17 @@ namespace HotelManagement
                 return;
             }
 
-            if (string.IsNullOrEmpty(App.Current.Properties["LoginUser"].ToSafeString()))
-            {
-                _dialogs.DisplayErrorDialog("Please log in", string.Empty);
-                return;
-            }
+            //if (string.IsNullOrEmpty(App.Current.Properties["LoginUser"].ToSafeString()))
+            //{
+            //    _dialogs.DisplayErrorDialog("Please log in", string.Empty);
+            //    return;
+            //}
 
-            if (!HasPermissions((int)selectedMenu))
-            {
-                _dialogs.DisplayNoPermissionDialog();
-                return;
-            }
+            //if (!HasPermissions((int)selectedMenu))
+            //{
+            //    _dialogs.DisplayNoPermissionDialog();
+            //    return;
+            //}
 
             switch (selectedMenu)
             {

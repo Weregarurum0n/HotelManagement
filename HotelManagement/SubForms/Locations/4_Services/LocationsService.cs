@@ -1,4 +1,4 @@
-﻿using HotelManagement.Shared.BaseClass;
+﻿using HotelManagement.Shared.Models.Objects;
 using HotelManagement.SubForms.Locations._3_Models.Req;
 using HotelManagement.SubForms.Locations._3_Models.Res;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace HotelManagement.SubForms.Locations._4_Services
         {
             return null;
         }
-        public ResponseStatus SetCountry(SetCountry req)
+        public ReturnStatus SetCountry(SetCountry req)
         {
             return null;
         }
@@ -33,7 +33,7 @@ namespace HotelManagement.SubForms.Locations._4_Services
         {
             return null;
         }
-        public ResponseStatus SetState(SetState req)
+        public ReturnStatus SetState(SetState req)
         {
             return null;
         }
@@ -46,7 +46,7 @@ namespace HotelManagement.SubForms.Locations._4_Services
         {
             return null;
         }
-        public ResponseStatus SetCity(SetCity req)
+        public ReturnStatus SetCity(SetCity req)
         {
             return null;
         }

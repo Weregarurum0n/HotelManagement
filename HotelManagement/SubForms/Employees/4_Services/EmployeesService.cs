@@ -1,4 +1,4 @@
-﻿using HotelManagement.Shared.BaseClass;
+﻿using HotelManagement.Shared.Models.Objects;
 using HotelManagement.SubForms.Employees._3_Models.Req;
 using HotelManagement.SubForms.Employees._3_Models.Res;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace HotelManagement.SubForms.Employees._4_Services
             return null;
         }
 
-        public ResponseStatus SetEmployee(SetEmployee req)
+        public ReturnStatus SetEmployee(SetEmployee req)
         {
             return null;
         }

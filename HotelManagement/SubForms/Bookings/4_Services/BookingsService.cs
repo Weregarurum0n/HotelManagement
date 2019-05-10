@@ -1,4 +1,4 @@
-﻿using HotelManagement.Shared.BaseClass;
+﻿using HotelManagement.Shared.Models.Objects;
 using HotelManagement.SubForms.Bookings._3_Models.Req;
 using HotelManagement.SubForms.Bookings._3_Models.Res;
 using System;
@@ -26,7 +26,7 @@ namespace HotelManagement.SubForms.Bookings._4_Services
             return null;
         }
 
-        public ResponseStatus SetBooking(SetBooking req)
+        public ReturnStatus SetBooking(SetBooking req)
         {
             return null;
         }

@@ -1,4 +1,4 @@
-﻿using HotelManagement.Shared.BaseClass;
+﻿using HotelManagement.Shared.Models.Objects;
 using HotelManagement.SubForms.ChangePassword._3_Models.Req;
 
 namespace HotelManagement.SubForms.ChangePassword._4_Services
@@ -10,7 +10,7 @@ namespace HotelManagement.SubForms.ChangePassword._4_Services
 
         }
 
-        public ResponseStatus SetPassword(SetPassword req)
+        public ReturnStatus SetPassword(SetPassword req)
         {
             return null;
         }

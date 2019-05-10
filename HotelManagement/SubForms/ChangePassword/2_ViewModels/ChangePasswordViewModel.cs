@@ -1,6 +1,7 @@
 ﻿using HotelManagement.Shared.BaseClass;
 using HotelManagement.Shared.Dialogs;
 using HotelManagement.SubForms.ChangePassword._3_Models.Req;
+using HotelManagement.SubForms.ChangePassword._4_Services;
 using Prism.Commands;
 using System.Windows.Input;
 
@@ -11,6 +12,7 @@ namespace HotelManagement.SubForms.ChangePassword._2_ViewModels
         #region Fields
 
         private IDialogObjects _dialogs;
+        private IChangePasswordsService _service;
 
         private SetPassword _saveReq;
         private string _currentPassword;
@@ -25,6 +27,8 @@ namespace HotelManagement.SubForms.ChangePassword._2_ViewModels
         {
             _dialogs = new DialogObjects();
             _dialogs.SetViewModel(this);
+
+            _service = new ChangePasswordsService();
 
             SaveCmd = new DelegateCommand(OnSave);
 

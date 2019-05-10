@@ -1,6 +1,7 @@
 ﻿using HotelManagement.Shared.BaseClass;
 using HotelManagement.Shared.Dialogs;
 using HotelManagement.SubForms.Login._3_Models.Req;
+using HotelManagement.SubForms.Login._4_Services;
 using Prism.Commands;
 using System.Windows.Input;
 
@@ -11,6 +12,7 @@ namespace HotelManagement.SubForms.Login._2_ViewModels
         #region Fields
 
         private IDialogObjects _dialogs;
+        private ILogonService _service;
 
         private AuthLogin _logonReq;
         private string _userName;
@@ -24,6 +26,8 @@ namespace HotelManagement.SubForms.Login._2_ViewModels
         {
             _dialogs = new DialogObjects();
             _dialogs.SetViewModel(this);
+
+            _service = new LogonService();
 
             IsLoading(false);
 
@@ -93,7 +97,17 @@ namespace HotelManagement.SubForms.Login._2_ViewModels
 
             IsLoading(true);
             //Attempt logon
+            var res = _service.Login(LogonReq);
             IsLoading(false);
+
+            if (res.Success)
+            {
+
+            }
+            else
+            {
+                _dialogs.DisplayErrorDialog(res.Status);
+            }
         }
 
         #endregion

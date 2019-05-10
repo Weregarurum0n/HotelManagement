@@ -23,7 +23,7 @@ namespace HotelManagement.Shared.BaseClass
 
                 return permissions.IndexOf(pm) != -1;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
@@ -55,7 +55,7 @@ namespace HotelManagement.Shared.BaseClass
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void RaisePropertyChanged([CallerMemberName]string propertyName = null)
+        protected new void RaisePropertyChanged([CallerMemberName]string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             OnPropertyChanged(propertyName);

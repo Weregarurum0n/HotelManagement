@@ -1,35 +1,77 @@
-﻿using System.Data;
-using System.Data.SqlClient;
+﻿using HotelManagement.Shared.Models.Objects;
+using HotelManagement.Shared.Objects;
+using Newtonsoft.Json;
+using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace HotelManagement.Shared.BaseClass
 {
-    public class SharedBaseService
+    public class SharedBaseService : ISharedBaseService
     {
-        public SqlConnection GetConn()
-        {
-            return GetOpenDataConnection("LAPTOP-K2EH8V3O", "HotelManagement", "sa", "coventry");
-        }
+        private readonly HttpClient _client;
 
-        private SqlConnection GetOpenDataConnection(string server, string database, string user, string password)
+        public SharedBaseService()
         {
-            SqlConnection con = new SqlConnection("Data Source=LAPTOP-K2EH8V3O;Initial Catalog=HotelManagement; User ID = sa; Password = coventry;");
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT * from GstTableGuests;", con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            //dataGridForm.ItemsSource = dt.DefaultView;
-
-            var builder = new SqlConnectionStringBuilder()
+            _client = new HttpClient()
             {
-                DataSource = server,
-                InitialCatalog = database,
-                UserID = user,
-                Password = password
+                BaseAddress = new Uri("http://localhost:59012"),
             };
-
-            var connection = new SqlConnection(builder.ToString());
-            connection.Open();
-            return connection;
         }
 
+        public ApiResponse<T> GetAsync<T>(string requestUri, object content)
+        {
+            return Execute<T>(requestUri, content, HttpMethod.Get);
+        }
+
+        public ApiResponse<T> PostAsync<T>(string requestUri, object content)
+        {
+            return Execute<T>(requestUri, content, HttpMethod.Post);
+        }
+
+        public ApiResponse<T> Execute<T>(string requestUri, object content, HttpMethod httpMethod)
+        {
+            var result = null as HttpResponseMessage;
+            var response = null as ApiResponse<T>;
+
+            try
+            {
+                if (httpMethod == HttpMethod.Get)
+                {
+                    if (content != null)
+                        requestUri += "?" + content.ToQueryString();
+
+                    result = _client.GetAsync(requestUri).Result;
+                }
+                else
+                {
+                    var myContent = JsonConvert.SerializeObject(content);
+                    var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
+                    var byteContent = new ByteArrayContent(buffer);
+                    byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                    result = _client.PostAsync(requestUri, byteContent).Result;
+                }
+
+                if (result == null) throw new Exception("empty response");
+            }
+            catch (HttpRequestException e)
+            {
+                response = new ApiResponse<T>()
+                {
+                    Status = new ReturnStatus(101, "Unable to connect to the API. " + e.Message),
+                    Content = default(T)
+                };
+            }
+            catch (Exception e)
+            {
+                response = new ApiResponse<T>()
+                {
+                    Status = new ReturnStatus(100, "Oops, something went wrong. " + e.Message),
+                    Content = default(T)
+                };
+            }
+            return response;
+        }
     }
 }
